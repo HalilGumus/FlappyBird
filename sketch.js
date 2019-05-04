@@ -36,7 +36,12 @@ function draw() {
 
   bird.show();
   bird.update();
-  //console.log(Math.random() * (+55 - +50) + 50);
+
+  // check collision
+  if (bird.y - 10 <= pipes[0].height1 && bird.x + 10 >= pipes[0].x && bird.x - 10 <= pipes[0].x + pipes[0].width ||
+    bird.y + 10 >= pipes[0].y2 && bird.x + 10 >= pipes[0].x && bird.x - 10 <= pipes[0].x + pipes[0].width) {
+    pipes[0].dead = true;
+  }
 }
 
 function keyPressed() {
